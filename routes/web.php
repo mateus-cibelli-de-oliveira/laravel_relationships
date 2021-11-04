@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OneToOneController;
 use App\Http\Controllers\OneToManyController;
+use App\Http\Controllers\ManyToManyController;
+use App\Http\Controllers\PolymorphicController;
 
 /**
  * One tho one
@@ -37,6 +39,26 @@ Route::get('/one-to-many-insert-two', [OneToManyController::class, 'OneToManyIns
  */
 
 Route::get('/has-many-through', [OneToManyController::class, 'HasManyThrough'])->name('has-many-through');
+
+/**
+ * Many to Many
+ */
+
+Route::get('/many-to-many', [ManyToManyController::class, 'ManyToMany'])->name('many-to-many');
+Route::get('/many-to-many-inverse', [ManyToManyController::class, 'ManyToManyInverse'])->name('many-to-many-inverse');
+
+/**
+ * Many to Many Insert
+ */
+
+Route::get('/many-to-many-insert', [ManyToManyController::class, 'ManyToManyInsert'])->name('many-to-many-insert');
+
+/**
+ * Relaction Polymorphic
+ */
+
+Route::get('/polymorphics', [PolymorphicController::class, 'Polymorphic'])->name('polymorphics');
+Route::get('/polymorphics-insert', [PolymorphicController::class, 'PolymorphicInsert'])->name('polymorphics-insert');
 
 
 // Route::get('/', function () {
